@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { getAllAppointments, updateAppointmentStatus } from '../firebase/appointments';
+import { getAllAppointments, updateAppointmentStatus, deleteAppointment } from '../firebase/appointments';
 import { logoutAdmin } from '../firebase/auth';
 import { AuthContext } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import {
   Stethoscope, LogOut, RefreshCw, Search,
-  Users, Clock, CheckCircle, Calendar, Filter, Loader2
+  Users, Clock, CheckCircle, Calendar, Filter, Loader2, Trash2
 } from 'lucide-react';
 
 const STATUS_OPTIONS = ['Pending', 'Confirmed', 'Completed'];
@@ -90,6 +90,20 @@ export default function AdminDashboard() {
       toast.success(`Status updated to ${newStatus}`);
     } else {
       toast.error('Failed to update status');
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this appointment?')) return;
+    
+    setUpdatingId(id);
+    const result = await deleteAppointment(id);
+    setUpdatingId(null);
+    if (result.success) {
+      setAppointments((prev) => prev.filter((a) => a.id !== id));
+      toast.success('Appointment deleted successfully');
+    } else {
+      toast.error('Failed to delete appointment');
     }
   };
 
@@ -234,7 +248,7 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-gray-50 text-textSecondary font-medium">
-                    {['Patient', 'Phone', 'Age', 'Gender', 'Doctor', 'Date', 'Time', 'Problem', 'Status', 'Update'].map((h) => (
+                    {['Patient', 'Phone', 'Age', 'Gender', 'Doctor', 'Date', 'Time', 'Problem', 'Status', 'Actions'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 whitespace-nowrap">{h}</th>
                     ))}
                   </tr>
@@ -262,17 +276,28 @@ export default function AdminDashboard() {
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        {updatingId === appt.id ? (
-                          <Loader2 size={16} className="animate-spin text-primary" />
-                        ) : (
-                          <select
-                            value={appt.status}
-                            onChange={(e) => handleStatusChange(appt.id, e.target.value)}
-                            className="text-xs border border-gray-200 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white cursor-pointer"
-                          >
-                            {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
-                          </select>
-                        )}
+                        <div className="flex items-center gap-2">
+                          {updatingId === appt.id ? (
+                            <Loader2 size={16} className="animate-spin text-primary" />
+                          ) : (
+                            <>
+                              <select
+                                value={appt.status}
+                                onChange={(e) => handleStatusChange(appt.id, e.target.value)}
+                                className="text-xs border border-gray-200 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white cursor-pointer"
+                              >
+                                {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+                              </select>
+                              <button
+                                onClick={() => handleDelete(appt.id)}
+                                className="p-1.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                title="Delete Appointment"
+                              >
+                                <Trash2 size={16} />
+                              </button>
+                            </>
+                          )}
+                        </div>
                       </td>
                     </motion.tr>
                   ))}

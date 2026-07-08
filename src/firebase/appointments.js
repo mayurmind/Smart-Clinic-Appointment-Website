@@ -7,6 +7,7 @@ import {
   query,
   orderBy,
   serverTimestamp,
+  deleteDoc,
 } from "firebase/firestore";
 import { db } from "./config";
 
@@ -67,6 +68,21 @@ export const updateAppointmentStatus = async (id, status) => {
     return { success: true };
   } catch (error) {
     console.error("Error updating status:", error);
+    return { success: false, error: error.message };
+  }
+};
+
+/**
+ * Delete appointment
+ * @param {string} id - Document ID
+ */
+export const deleteAppointment = async (id) => {
+  try {
+    const docRef = doc(db, COLLECTION, id);
+    await deleteDoc(docRef);
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting appointment:", error);
     return { success: false, error: error.message };
   }
 };
