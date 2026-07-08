@@ -24,20 +24,22 @@ export default function ServicesSection({ limit }) {
   return (
     <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <span className="inline-block bg-primary-50 text-primary-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            What We Offer
-          </span>
-          <h2 className="section-title">Our Specialized Services</h2>
-          <p className="section-subtitle">
-            Expert care across a wide range of medical disciplines — all under one roof.
-          </p>
-        </motion.div>
+        {limit && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <span className="inline-block bg-primary-50 text-primary-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              What We Offer
+            </span>
+            <h2 className="section-title">Our Specialized Services</h2>
+            <p className="section-subtitle">
+              Expert care across a wide range of medical disciplines — all under one roof.
+            </p>
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayServices.map((service, i) => (

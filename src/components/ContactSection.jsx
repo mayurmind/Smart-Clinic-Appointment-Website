@@ -42,20 +42,7 @@ export default function ContactSection() {
   return (
     <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <span className="inline-block bg-primary-50 text-primary-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Get In Touch
-          </span>
-          <h2 className="section-title">Contact Us</h2>
-          <p className="section-subtitle">
-            Have questions? We're here to help. Reach out to us through any of the channels below.
-          </p>
-        </motion.div>
+
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
