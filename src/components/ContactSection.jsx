@@ -7,9 +7,9 @@ const contactItems = [
   {
     icon: Phone,
     title: 'Call Us',
-    value: '+91 12345 67890',
-    sub: 'Mon–Sat, 9AM–6PM',
-    href: 'tel:+911234567890',
+    value: '108',
+    sub: 'Available 24/7 for emergencies',
+    href: 'tel:108',
     color: 'text-primary',
     bg: 'bg-primary-50',
   },
@@ -93,7 +93,7 @@ export default function ContactSection() {
             Get instant responses to your queries, appointment confirmations, and prescription follow-ups.
           </p>
           <a
-            href={`https://wa.me/911234567890?text=${whatsappMsg}`}
+            href={`https://wa.me/108?text=${whatsappMsg}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-3 bg-white text-green-700 font-bold px-8 py-3.5 rounded-xl hover:bg-green-50 transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"

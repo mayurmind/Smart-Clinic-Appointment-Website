@@ -72,9 +72,9 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="tel:+911234567890" className={`hidden md:flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${isScrolled ? "text-textSecondary hover:text-primary" : "text-white/80 hover:text-white"}`}>
+            <a href="tel:108" className={`hidden md:flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${isScrolled ? "text-textSecondary hover:text-primary" : "text-white/80 hover:text-white"}`}>
               <Phone size={16} />
-              <span>+91 12345 67890</span>
+              <span> 108 </span>
             </a>
             <button onClick={() => navigate("/book")} className="hidden md:block btn-secondary text-sm py-2 px-5">Book Now</button>
             <button onClick={() => setMenuOpen(!menuOpen)} className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${isScrolled ? "text-textPrimary hover:bg-gray-100" : "text-white hover:bg-white/10"}`} aria-label="Toggle menu">
@@ -100,8 +100,8 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-2 pb-1 border-t border-gray-100">
-                <a href="tel:+911234567890" className="flex items-center gap-2 px-4 py-3 text-sm text-textSecondary">
-                  <Phone size={16} /><span>+91 12345 67890</span>
+                <a href="tel:108" className="flex items-center gap-2 px-4 py-3 text-sm text-textSecondary">
+                  <Phone size={16} /><span>108</span>
                 </a>
               </div>
             </div>

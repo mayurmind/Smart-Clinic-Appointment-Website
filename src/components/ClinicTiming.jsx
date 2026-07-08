@@ -94,7 +94,7 @@ export default function ClinicTiming() {
           </div>
           <p className="text-red-700 text-sm">
             <span className="font-semibold">Emergency?</span> Call us anytime at{' '}
-            <a href="tel:+911234567890" className="font-bold underline">+91 12345 67890</a> or visit the nearest emergency room.
+            <a href="tel:108" className="font-bold underline">108</a> or visit the nearest emergency room.
           </p>
         </motion.div>
       </div>

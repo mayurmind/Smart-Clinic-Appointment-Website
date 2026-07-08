@@ -6,7 +6,7 @@ const infoCards = [
   { icon: Clock, title: 'Quick Booking', desc: 'Fill in your details in under 2 minutes.' },
   { icon: Shield, title: 'Secure & Private', desc: 'Your data is fully encrypted and confidential.' },
   { icon: CalendarCheck, title: '24h Confirmation', desc: 'We confirm your slot within 24 hours.' },
-  { icon: Phone, title: 'Need Help?', desc: 'Call +91 12345 67890 for assistance.' },
+  { icon: Phone, title: 'Need Help?', desc: 'Call 108 for assistance.' },
 ];
 
 export default function BookAppointment() {
@@ -90,7 +90,7 @@ export default function BookAppointment() {
 
             {/* WhatsApp quick book */}
             <a
-              href="https://wa.me/911234567890?text=Hi%20SmartCare%2C%20I%20want%20to%20book%20an%20appointment"
+              href="https://wa.me/108?text=Hi%20SmartCare%2C%20I%20want%20to%20book%20an%20appointment"
               target="_blank"
               rel="noreferrer"
               className="block card p-5 bg-green-600 text-white text-center hover:-translate-y-1 transition-transform duration-300"
