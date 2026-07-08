@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1A1A2E;
+    background-color: #F5F7FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow-button hover:bg-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white font-semibold px-6 py-3 rounded-lg shadow-button hover:bg-secondary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-headline font-bold text-textPrimary;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-textSecondary mt-3 max-w-2xl mx-auto;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-200 bg-white text-textPrimary placeholder-gray-400;
+  }
+
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .status-confirmed {
+    @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1565C0 0%, #42A5F5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F7FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #90CAF9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1565C0;
+}
+
+/* Hero particle/blob animations */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: blobFloat 8s ease-in-out infinite;
+  opacity: 0.15;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-15px, 15px) scale(0.95); }
+}
+
+/* WhatsApp float button pulse */
+.whatsapp-pulse {
+  animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+/* Smooth number count animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
