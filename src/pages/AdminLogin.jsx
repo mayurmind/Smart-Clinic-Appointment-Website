@@ -1,10 +1,10 @@
 import { useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { loginAdmin } from '../firebase/auth';
 import { AuthContext } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import { Stethoscope, Mail, Lock, Loader2, Eye, EyeOff, ShieldCheck } from 'lucide-react';
+import { Stethoscope, Mail, Lock, Loader2, Eye, EyeOff, ShieldCheck, ArrowLeft } from 'lucide-react';
 
 export default function AdminLogin() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -49,6 +49,15 @@ export default function AdminLogin() {
       {/* Background blobs */}
       <div className="hero-blob w-72 h-72 bg-blue-400" style={{ top: '5%', left: '5%' }} />
       <div className="hero-blob w-64 h-64 bg-cyan-400" style={{ bottom: '10%', right: '5%', animationDelay: '4s' }} />
+
+      {/* Back to Home Button */}
+      <Link 
+        to="/" 
+        className="absolute top-6 left-6 sm:top-10 sm:left-10 flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+      >
+        <ArrowLeft size={20} />
+        <span className="font-medium text-sm sm:text-base">Back to Home</span>
+      </Link>
 
       <motion.div
         initial={{ opacity: 0, y: 40, scale: 0.95 }}

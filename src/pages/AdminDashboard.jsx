@@ -39,7 +39,16 @@ export default function AdminDashboard() {
       navigate('/admin/login');
       return;
     }
+    
+    // Initial fetch
     fetchAppointments();
+
+    // Auto-refresh every 15 minutes
+    const intervalId = setInterval(() => {
+      fetchAppointments();
+    }, 15 * 60 * 1000); // 15 minutes in milliseconds
+
+    return () => clearInterval(intervalId);
   }, [user]);
 
   useEffect(() => {

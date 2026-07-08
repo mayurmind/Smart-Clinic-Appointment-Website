@@ -11,6 +11,7 @@ import FloatingAIChat from './components/FloatingAIChat.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Services from './pages/Services.jsx';
+import ServiceDetails from './pages/ServiceDetails.jsx';
 import BookAppointment from './pages/BookAppointment.jsx';
 import Contact from './pages/Contact.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
@@ -47,6 +48,7 @@ function AnimatedRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/service/:id" element={<ServiceDetails />} />
             <Route path="/book" element={<BookAppointment />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<AdminLogin />} />
