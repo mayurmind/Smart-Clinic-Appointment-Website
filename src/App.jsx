@@ -7,6 +7,7 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import FloatingAIChat from './components/FloatingAIChat.jsx';
+import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
 
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
@@ -59,6 +60,7 @@ function AnimatedRoutes() {
 
       {!isAdminRoute && <Footer />}
       {!isAdminRoute && <FloatingAIChat />}
+      {!isAdminRoute && <FloatingWhatsApp />}
     </>
   );
 }

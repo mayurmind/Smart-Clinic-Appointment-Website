@@ -234,7 +234,7 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-gray-50 text-textSecondary font-medium">
-                    {['Patient', 'Phone', 'Age', 'Doctor', 'Date', 'Time', 'Problem', 'Status', 'Update'].map((h) => (
+                    {['Patient', 'Phone', 'Age', 'Gender', 'Doctor', 'Date', 'Time', 'Problem', 'Status', 'Update'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 whitespace-nowrap">{h}</th>
                     ))}
                   </tr>
@@ -251,6 +251,7 @@ export default function AdminDashboard() {
                       <td className="px-4 py-3 font-medium text-textPrimary whitespace-nowrap">{appt.patientName}</td>
                       <td className="px-4 py-3 text-textSecondary">{appt.phoneNumber}</td>
                       <td className="px-4 py-3 text-textSecondary">{appt.age}</td>
+                      <td className="px-4 py-3 text-textSecondary">{appt.gender}</td>
                       <td className="px-4 py-3 text-textSecondary max-w-[120px] truncate">{appt.doctorName?.split('—')[0]?.trim()}</td>
                       <td className="px-4 py-3 whitespace-nowrap text-textSecondary">{appt.appointmentDate}</td>
                       <td className="px-4 py-3 whitespace-nowrap text-textSecondary">{appt.appointmentTime}</td>

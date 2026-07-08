@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { doctorsData } from '../data/doctors';
-import { Shield, Activity, Award, Star } from 'lucide-react';
+import { Shield, Activity, Award, Star, Clock, MapPin } from 'lucide-react';
 
 export default function DoctorProfile() {
   const ref = useRef(null);
@@ -62,14 +62,7 @@ export default function DoctorProfile() {
                   </div>
                 </div>
 
-                {/* Floating Badge - Bottom Left (Rating) */}
-                <div className="absolute bottom-8 left-6 bg-[#1A62B7] border border-white/10 rounded-xl px-3 py-2 flex items-center gap-2 shadow-lg z-10 hidden sm:flex">
-                  <Award size={18} className="text-white" />
-                  <div className="text-left leading-none">
-                    <div className="font-bold text-sm mb-1">{doc.rating}★</div>
-                    <div className="text-[10px] text-blue-100 font-medium uppercase tracking-wide">Rating</div>
-                  </div>
-                </div>
+
 
                 {/* Avatar */}
                 <div className="text-[100px] sm:text-[120px] leading-none mb-6 mt-4 sm:mt-8 relative z-0 inline-block drop-shadow-2xl">
@@ -89,7 +82,25 @@ export default function DoctorProfile() {
                       <Star key={star} size={22} className="text-[#FFC107] fill-[#FFC107] drop-shadow-md" />
                     ))}
                   </div>
-                  <p className="text-blue-200 text-sm font-medium mt-1">{doc.rating}/5 Patient Rating</p>
+                  <p className="text-blue-200 text-sm font-medium mt-1 mb-4">{doc.rating}/5 Patient Rating</p>
+
+                  {/* Timing & Address */}
+                  <div className="bg-white/10 rounded-xl p-4 text-left border border-white/10 mt-6 backdrop-blur-sm">
+                    <div className="flex items-start gap-3 mb-2">
+                      <Clock size={16} className="text-green-300 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="block text-[10px] uppercase text-blue-200 font-bold tracking-wider mb-0.5">Timing</span>
+                        <span className="text-sm font-medium">{doc.timing}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <MapPin size={16} className="text-red-300 mt-0.5 shrink-0" />
+                      <div>
+                        <span className="block text-[10px] uppercase text-blue-200 font-bold tracking-wider mb-0.5">Clinic Address</span>
+                        <span className="text-sm font-medium">{doc.address}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
               </div>

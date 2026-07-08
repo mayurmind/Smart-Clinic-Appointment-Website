@@ -22,6 +22,7 @@ export const addAppointment = async (data) => {
       patientName: data.patientName,
       phoneNumber: data.phoneNumber,
       age: data.age,
+      gender: data.gender,
       doctorName: data.doctorName,
       appointmentDate: data.appointmentDate,
       appointmentTime: data.appointmentTime,

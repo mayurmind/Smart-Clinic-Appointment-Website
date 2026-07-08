@@ -55,19 +55,16 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4"
             >
-              Your Health,{' '}
-              <span className="block text-accent">Our Priority</span>
+              Book Your Clinic <span className="block text-accent">Appointment Online</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-blue-100 text-lg leading-relaxed mb-8 max-w-lg"
+              className="text-blue-100 text-lg leading-relaxed mb-8 max-w-lg font-medium tracking-wide"
             >
-              Book appointments with our team of{' '}
-              <span className="text-white font-semibold">Expert Specialists</span> — providing
-              comprehensive and compassionate care across multiple specialties. Fast, easy, and reliable.
+              Fast, easy, and trusted appointment booking for patients.
             </motion.p>
 
             <motion.div
@@ -84,10 +81,10 @@ export default function Hero() {
                 Book Appointment
               </button>
               <button
-                onClick={() => navigate('/services')}
+                onClick={() => navigate('/contact')}
                 className="flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white hover:text-primary transition-all duration-300 hover:-translate-y-1 text-base"
               >
-                View Services
+                Contact Clinic
                 <ChevronRight size={18} />
               </button>
             </motion.div>

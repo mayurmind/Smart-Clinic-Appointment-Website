@@ -20,6 +20,7 @@ const initialForm = {
   patientName: '',
   phoneNumber: '',
   age: '',
+  gender: '',
   doctorName: '',
   appointmentDate: '',
   appointmentTime: '',
@@ -37,6 +38,7 @@ export default function AppointmentForm() {
     if (!form.patientName.trim()) errs.patientName = 'Patient name is required';
     if (!/^[6-9]\d{9}$/.test(form.phoneNumber)) errs.phoneNumber = 'Enter valid 10-digit phone number';
     if (!form.age || form.age < 1 || form.age > 120) errs.age = 'Enter valid age (1-120)';
+    if (!form.gender) errs.gender = 'Select gender';
     if (!form.doctorName) errs.doctorName = 'Please select a doctor';
     if (!form.appointmentDate) errs.appointmentDate = 'Select appointment date';
     else {
@@ -71,7 +73,7 @@ export default function AppointmentForm() {
     setLoading(false);
 
     if (result.success) {
-      toast.success('🎉 Appointment booked successfully! We will confirm shortly.');
+      toast.success('Appointment request submitted successfully. Clinic will contact you soon.');
       setForm(initialForm);
       setTimeout(() => navigate('/'), 2000);
     } else {
@@ -85,15 +87,15 @@ export default function AppointmentForm() {
   const fields = [
     {
       name: 'patientName', label: 'Patient Full Name', type: 'text',
-      placeholder: 'e.g. Rahul Sharma', icon: User, colSpan: 'col-span-2',
+      placeholder: 'e.g. Rahul Sharma', icon: User, colSpan: 'col-span-1 sm:col-span-2',
     },
     {
       name: 'phoneNumber', label: 'Phone Number', type: 'tel',
-      placeholder: 'e.g. 9876543210', icon: Phone, colSpan: '',
+      placeholder: 'e.g. 9876543210', icon: Phone, colSpan: 'col-span-1 sm:col-span-2',
     },
     {
       name: 'age', label: 'Age', type: 'number',
-      placeholder: 'e.g. 28', icon: Hash, colSpan: '',
+      placeholder: 'e.g. 28', icon: Hash, colSpan: 'col-span-1',
     },
   ];
 
@@ -131,6 +133,28 @@ export default function AppointmentForm() {
               )}
             </div>
           ))}
+
+          {/* Gender */}
+          <div className="col-span-1">
+            <label className="block text-sm font-medium text-textPrimary mb-1.5">
+              Gender <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <UserRound size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <select
+                name="gender"
+                value={form.gender}
+                onChange={handleChange}
+                className={`input-field pl-10 appearance-none ${errors.gender ? 'border-red-400 ring-2 ring-red-100' : ''}`}
+              >
+                <option value="">-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            {errors.gender && <p className="text-red-500 text-xs mt-1.5">⚠ {errors.gender}</p>}
+          </div>
         </div>
       </div>
 

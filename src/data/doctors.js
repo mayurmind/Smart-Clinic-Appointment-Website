@@ -8,6 +8,8 @@ export const doctorsData = [
     patients: '5000+',
     rating: '4.9',
     emoji: '👨‍⚕️',
+    timing: '10 AM – 2 PM, 5 PM – 8 PM',
+    address: 'SmartCare Main Clinic, New Delhi',
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const doctorsData = [
     patients: '3200+',
     rating: '4.8',
     emoji: '👩‍⚕️',
+    timing: '9 AM – 1 PM, 4 PM – 7 PM',
+    address: 'SmartCare Heart Center, Mumbai',
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const doctorsData = [
     patients: '8500+',
     rating: '5.0',
     emoji: '👨‍⚕️',
+    timing: '11 AM – 3 PM, 6 PM – 9 PM',
+    address: 'SmartCare Ortho Clinic, Bangalore',
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ export const doctorsData = [
     patients: '4100+',
     rating: '4.7',
     emoji: '👩‍⚕️',
+    timing: '10 AM – 2 PM, 4 PM – 8 PM',
+    address: 'SmartCare Skin & Hair Center, Pune',
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ export const doctorsData = [
     patients: '7200+',
     rating: '4.9',
     emoji: '👨‍⚕️',
+    timing: '8 AM – 12 PM, 5 PM – 9 PM',
+    address: 'SmartCare Kids Clinic, Chennai',
   },
   {
     id: 6,
@@ -58,6 +68,8 @@ export const doctorsData = [
     patients: '5300+',
     rating: '4.8',
     emoji: '👩‍⚕️',
+    timing: '9 AM – 1 PM, 3 PM – 6 PM',
+    address: 'SmartCare Women Center, Hyderabad',
   },
   {
     id: 7,
@@ -68,6 +80,8 @@ export const doctorsData = [
     patients: '2900+',
     rating: '4.9',
     emoji: '👨‍⚕️',
+    timing: '10 AM – 2 PM, 5 PM – 8 PM',
+    address: 'SmartCare Neuro Center, Kolkata',
   },
   {
     id: 8,
@@ -78,5 +92,7 @@ export const doctorsData = [
     patients: '3800+',
     rating: '4.8',
     emoji: '👩‍⚕️',
+    timing: '9 AM – 1 PM, 4 PM – 8 PM',
+    address: 'SmartCare Eye Center, Ahmedabad',
   }
 ];
