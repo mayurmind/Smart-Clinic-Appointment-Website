@@ -24,6 +24,40 @@ export default function About() {
       {/* Doctor Profile */}
       <DoctorProfile />
 
+      {/* World-Class Facilities */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-headline font-bold text-3xl text-textPrimary mb-6">World-Class Facilities</h2>
+              <p className="text-textSecondary text-lg leading-relaxed mb-6">
+                Our clinic is designed to provide a healing, comfortable environment. With warm lighting, premium wooden accents, and state-of-the-art medical equipment, we ensure that every patient feels relaxed and well-cared for from the moment they walk in.
+              </p>
+              <p className="text-textSecondary text-lg leading-relaxed">
+                Experience healthcare that combines modern medical science with a premium, hospitality-like atmosphere.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <img 
+                src="/images/patient_care.png" 
+                alt="Hospital Hallway" 
+                className="rounded-[2rem] shadow-2xl w-full h-[400px] object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy */}
       <section className="py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

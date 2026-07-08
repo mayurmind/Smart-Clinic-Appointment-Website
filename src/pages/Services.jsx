@@ -24,6 +24,37 @@ export default function Services() {
       {/* All Services (no limit) */}
       <ServicesSection />
 
+      {/* Advanced Diagnostics Image Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <img 
+                src="/images/medical_consultation.png" 
+                alt="Medical Consultation Room" 
+                className="rounded-[2rem] shadow-2xl w-full h-[400px] object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-headline font-bold text-3xl text-textPrimary mb-6">Advanced Diagnostic Technology</h2>
+              <p className="text-textSecondary text-lg leading-relaxed mb-6">
+                Our consultation rooms are equipped with the latest medical technology to ensure accurate diagnosis and effective treatment plans. We continuously upgrade our facilities to provide the highest standard of care across all specialties.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

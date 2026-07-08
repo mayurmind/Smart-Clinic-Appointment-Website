@@ -108,24 +108,42 @@ export default function WhyChooseUs() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {reasons.map((reason, i) => (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="card p-6 text-center hover:-translate-y-2 group"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">
-                  {reason.emoji}
-                </div>
-                <h3 className="font-headline font-bold text-textPrimary text-base mb-2">
-                  {reason.title}
-                </h3>
-                <p className="text-textSecondary text-sm leading-relaxed">{reason.desc}</p>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side: Reasons Grid */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              {reasons.map((reason, i) => (
+                <motion.div
+                  key={reason.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                  className="card p-6 text-center hover:-translate-y-2 group"
+                >
+                  <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">
+                    {reason.emoji}
+                  </div>
+                  <h3 className="font-headline font-bold text-textPrimary text-base mb-2">
+                    {reason.title}
+                  </h3>
+                  <p className="text-textSecondary text-sm leading-relaxed">{reason.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right side: Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-secondary rounded-[2rem] transform translate-x-4 translate-y-4 opacity-20"></div>
+              <img 
+                src="/images/clinic_reception.png" 
+                alt="Modern Clinic Reception" 
+                className="rounded-[2rem] shadow-2xl w-full h-[500px] object-cover relative z-10"
+              />
+            </motion.div>
           </div>
         </div>
       </div>
