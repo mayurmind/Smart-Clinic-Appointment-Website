@@ -73,6 +73,22 @@ export const updateAppointmentStatus = async (id, status) => {
 };
 
 /**
+ * Update appointment details
+ * @param {string} id - Document ID
+ * @param {Object} updatedData - Data to update
+ */
+export const updateAppointment = async (id, updatedData) => {
+  try {
+    const docRef = doc(db, COLLECTION, id);
+    await updateDoc(docRef, updatedData);
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating appointment:", error);
+    return { success: false, error: error.message };
+  }
+};
+
+/**
  * Delete appointment
  * @param {string} id - Document ID
  */
